@@ -45,7 +45,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 # Create controller nodes
-resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "controllers" {
   count            = "${var.vm_controller_count}"
   name             = "${var.vm_name_prefix}-controller-${format("%02d", count.index + 1 + var.offset)}"
   folder           = "Terraform"
@@ -89,7 +89,7 @@ resource "vsphere_virtual_machine" "vm" {
 }
 
 # Create worker nodes
-resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "workers" {
   count            = "${var.vm_worker_count}"
   name             = "${var.vm_name_prefix}-worker-${format("%02d", count.index + 1 + var.offset)}"
   folder           = "Terraform"

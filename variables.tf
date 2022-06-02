@@ -17,8 +17,3 @@ variable "vm_name_prefix" {
   type = string
 }
 
-variable "vm_worker_count" {
-  description = "Virtual machine name prefix"
-  type = string
-  default = "3"
-}
