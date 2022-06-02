@@ -5,5 +5,6 @@ module "compute" {
   vsphere_password     = var.vsphere_password
   vsphere_server       = var.vsphere_server
   vm_name_prefix       = var.vm_name_prefix
+  vm_controller_count  = var.vm_controller_count
   vm_worker_count      = var.vm_worker_count
 }
