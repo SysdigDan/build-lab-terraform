@@ -45,8 +45,8 @@ resource "vsphere_virtual_machine" "vm" {
   #     size             = data.vsphere_virtual_machine.template.disks.0.size
   #     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
   # }
-  # network_interface {
-  #     network_id   = data.vsphere_network.network.id
-  #     adapter_type = data.vsphere_virtual_machine.template.network_interface_types[0]
-  # }
+  network_interface {
+      network_id   = data.vsphere_network.network.id
+      adapter_type = data.vsphere_virtual_machine.template.network_interface_types[0]
+  }
 }
