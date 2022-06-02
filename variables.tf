@@ -11,3 +11,8 @@ variable "vsphere_server" {
   description = "vSphere server IP ro FQDN"
   type = string
 }
+
+variable "vm_name_prefix" {
+  description = "Virtual machine name prefix"
+  type = string
+}

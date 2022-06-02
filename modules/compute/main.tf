@@ -1,5 +1,5 @@
-variable "name_prefix" {
-  default = "srvlb"
+variable "vm_name_prefix" {
+  default = var.vm_name_prefix
 }
 variable "offset" {
   default = 1
@@ -74,17 +74,17 @@ resource "vsphere_virtual_machine" "vm" {
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
     customize {
       linux_options {
-        host_name = "${var.name_prefix}${format("%02d", count.index + 1 + var.offset)}"
+        host_name = "${var.vm_name_prefix}${format("%02d", count.index + 1 + var.offset)}"
         domain    = "prod.com"
       }
 	  network_interface {
-        ipv4_address = "${format("10.0.0.%d", (count.index + 1 + var.offset + var.start_ipv4_address))}"
+        ipv4_address = "${format("192.168.6.%d", (count.index + 1 + var.offset + var.start_ipv4_address))}"
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.0.0.1"
-	    dns_suffix_list = ["prod.com"]
-      dns_server_list = ["10.0.0.2"]
+      ipv4_gateway = "192.168.6.254"
+	    dns_suffix_list = ["lab.internal"]
+      dns_server_list = ["192.168.6.254"]
     }
   }
 }
