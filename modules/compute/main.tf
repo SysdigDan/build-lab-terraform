@@ -8,11 +8,11 @@ provider "vsphere" {
 }
 
 data "vsphere_datacenter" "dc" {
-  name = "lab"
+  name = "LAB"
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "datastore1"
+  name          = "LAB-VM-01"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -22,17 +22,17 @@ data "vsphere_compute_cluster" "cluster" {
 }
 
 data "vsphere_resource_pool" "pool" {
-  name          = "Compute-ResourcePool"
+  name          = "RESOURCES"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_network" "network" {
-  name          = "segment"
+  name          = "lab_management_6"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_virtual_machine" "template" {
-  name          = "Windows Template"
+  name          = "ubuntu-20.04.2"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
