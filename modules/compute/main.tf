@@ -17,14 +17,14 @@ data "vsphere_datastore" "datastore" {
 }
 
 data "vsphere_compute_cluster" "cluster" {
-    name          = "Cluster-1"
+    name          = "RESOURCES"
     datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
-data "vsphere_resource_pool" "pool" {
-  name          = "RESOURCES"
-  datacenter_id = "${data.vsphere_datacenter.dc.id}"
-}
+# data "vsphere_resource_pool" "pool" {
+#   name          = "RESOURCES"
+#   datacenter_id = "${data.vsphere_datacenter.dc.id}"
+# }
 
 data "vsphere_network" "network" {
   name          = "lab_management_6"
