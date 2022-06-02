@@ -58,7 +58,7 @@ resource "vsphere_virtual_machine" "controllers" {
 
   provisioner "remote-exec" {
     inline = [
-      "curl -s https://raw.githubusercontent.com/SysdigDan/scripts/master/prepare-k8s-crio.sh --output /tmp/prepare-k8s-crio.sh",
+      "curl -s https://raw.githubusercontent.com/SysdigDan/build-lab-terraform/master/scripts/prepare-k8s-crio-v2.sh --output /tmp/prepare-k8s-crio.sh",
       "chmod +x /tmp/prepare-k8s-crio.sh && /tmp/prepare-k8s-crio.sh > /tmp/prepare-k8s-crio.log"
     ]
   }
@@ -115,7 +115,7 @@ resource "vsphere_virtual_machine" "workers" {
 
   provisioner "remote-exec" {
     inline = [
-      "curl -s https://raw.githubusercontent.com/SysdigDan/scripts/master/prepare-k8s-crio.sh --output /tmp/prepare-k8s-crio.sh",
+      "curl -s https://raw.githubusercontent.com/SysdigDan/build-lab-terraform/master/scripts/prepare-k8s-crio-v2.sh --output /tmp/prepare-k8s-crio.sh",
       "chmod +x /tmp/prepare-k8s-crio.sh && /tmp/prepare-k8s-crio.sh > /tmp/prepare-k8s-crio.log"
     ]
   }
