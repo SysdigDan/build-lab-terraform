@@ -3,3 +3,4 @@ variable "vsphere_password" {}
 variable "vsphere_server" {}
 
 variable "vm_name_prefix" {}
+variable "vm_worker_count" {}

@@ -44,7 +44,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 resource "vsphere_virtual_machine" "vm" {
-  count            = 1
+  count            = "${var.vm_worker_count}"
   name             = "${var.vm_name_prefix}-worker-${format("%02d", count.index + 1 + var.offset)}"
   folder           = "Terraform"
   resource_pool_id = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
