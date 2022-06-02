@@ -45,7 +45,7 @@ data "vsphere_virtual_machine" "template" {
 
 resource "vsphere_virtual_machine" "vm" {
   count            = 1
-  name             = "${var.vm_name_prefix}${format("%02d-worker-", count.index + 1 + var.offset)}"
+  name             = "${var.vm_name_prefix}-worker-${format("%02d", count.index + 1 + var.offset)}"
   folder           = "Terraform"
   resource_pool_id = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
@@ -71,7 +71,7 @@ resource "vsphere_virtual_machine" "vm" {
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
     customize {
       linux_options {
-        host_name = "${var.vm_name_prefix}${format("%02d-worker-", count.index + 1 + var.offset)}"
+        host_name = "${var.vm_name_prefix}-worker-${format("%02d", count.index + 1 + var.offset)}"
         domain    = "prod.com"
       }
 	  network_interface {
