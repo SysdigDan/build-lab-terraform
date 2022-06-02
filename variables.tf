@@ -1,19 +1,58 @@
-variable "vsphere_user" {
-  description = "vSphere username used to provision virtual machine"
+variable "prefix" {
   type = string
-  default = "administrator@vsphere.local"
-}
-variable "vsphere_password" {
-  description = "vSphere username password"
-  type = string
-}
-variable "vsphere_server" {
-  description = "vSphere server IP ro FQDN"
-  type = string
+  description = "value"
+  default = "k8s"
 }
 
-variable "vm_name_prefix" {
-  description = "Virtual machine name prefix"
-  type = string
+variable "ssh_connection" {
+  type = object({
+    ssh_user = string
+    ssh_password = string
+  })
 }
 
+variable vsphere_connection {
+  type = object({
+    vsphere_server = string
+    vsphere_user = string
+    vsphere_password = string
+    vsphere_vm_folder = string
+  })
+  description = "value"
+}
+
+variable vm_count {
+  type = object({
+    controllers = number
+    workers = number
+  })
+  description = "value"
+  default = {
+    controllers = 1
+    workers = 3
+  }
+}
+
+variable "vm_hardware_settings" {
+  type = object({
+    cpu = number
+    mem = number
+  })
+  description = "value"
+  default = {
+    cpu = 2
+    mem = 4096
+  }
+}
+
+variable "vm_network_settings" {
+  type = object({
+    ipv4_netmask = number
+    ipv4_cidr = string
+    ipv4_gateway = string
+    start_ipv4_address = number
+    dns_server_list = list(string)
+    dns_domain = string
+  })
+  description = "value"
+}

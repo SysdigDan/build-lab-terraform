@@ -1,17 +1,6 @@
-variable "vsphere_user" {}
-variable "vsphere_password" {}
-variable "vsphere_server" {}
-
-variable "vm_name_prefix" {}
-
-variable "vm_controller_count" {
-  description = "Virtual machine name prefix"
-  type = string
-  default = "1"
-}
-
-variable "vm_worker_count" {
-  description = "Virtual machine name prefix"
-  type = string
-  default = "3"
-}
+variable "prefix" {}
+variable "ssh_connection" {}
+variable vsphere_connection {}
+variable vm_count {}
+variable "vm_hardware_settings" {}
+variable "vm_network_settings" {}

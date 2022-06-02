@@ -1,10 +1,10 @@
 # Create compute resources
 module "compute" {
-  source               = "./modules/compute"
-  vsphere_user         = var.vsphere_user
-  vsphere_password     = var.vsphere_password
-  vsphere_server       = var.vsphere_server
-  vm_name_prefix       = var.vm_name_prefix
-  vm_controller_count  = var.vm_controller_count
-  vm_worker_count      = var.vm_worker_count
+  source = "./modules/compute"
+  prefix = var.prefix
+  ssh_connection = var.ssh_connection
+  vsphere_connection = var.vsphere_connection
+  vm_count = var.vm_count
+  vm_hardware_settings = var.vm_hardware_settings
+  vm_network_settings = var.vm_network_settings
 }

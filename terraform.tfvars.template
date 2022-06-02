@@ -1,0 +1,41 @@
+prefix = ""
+
+ssh_connection = {
+  ssh_password = "!"
+  ssh_user = ""
+}
+
+vsphere_connection = {
+  vsphere_server = ""
+  vsphere_user = ""
+  vsphere_password = ""
+  vsphere_vm_folder = ""
+}
+
+vm_count = {
+  controllers = 1
+  workers = 1
+}
+
+vm_hardware_settings = {
+  cpu = 2
+  mem = 4096
+}
+
+vm_network_settings = {
+  ipv4_netmask = 24
+  ipv4_cidr = ""
+  ipv4_gateway = ""
+  start_ipv4_address = 100
+  dns_server_list = [""]
+  dns_domain = ""
+}
+
+
+
+
+
+
+
+
+
