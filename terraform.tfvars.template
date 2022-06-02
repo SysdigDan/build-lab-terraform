@@ -12,6 +12,14 @@ vsphere_connection = {
   vsphere_vm_folder = ""
 }
 
+vsphere_settings = {
+  vsphere_datacenter = ""
+  vsphere_datastore = ""
+  vsphere_cluster = ""
+  vsphere_network = ""
+  vsphere_template = ""
+}
+
 vm_count = {
   controllers = 1
   workers = 1
