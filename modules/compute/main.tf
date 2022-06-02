@@ -1,6 +1,3 @@
-variable "vm_name_prefix" {
-  default = var.vm_name_prefix
-}
 variable "offset" {
   default = 1
 }
