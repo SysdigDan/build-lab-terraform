@@ -1,5 +1,5 @@
 variable "offset" {
-  default = 0
+  default = 1
 }
 variable "start_ipv4_address" {
   default = 100
