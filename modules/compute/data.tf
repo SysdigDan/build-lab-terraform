@@ -1,14 +1,14 @@
 data "vsphere_datacenter" "datacenter" {
-  name = "LAB"
+  name = var.vsphere_settings.vsphere_datacenter
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "LAB-VM-01"
+  name          = var.vsphere_settings.vsphere_datastore
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
 
 data "vsphere_compute_cluster" "cluster" {
-  name          = "RESOURCES"
+  name          = var.vsphere_settings.vsphere_cluster
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
 
@@ -18,11 +18,11 @@ data "vsphere_resource_pool" "pool" {
 }
 
 data "vsphere_network" "network" {
-  name          = "lab_management_6"
+  name          = var.vsphere_settings.vsphere_network
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
 
 data "vsphere_virtual_machine" "template" {
-  name          = "ubuntu-20.04.2"
+  name          = var.vsphere_settings.vsphere_template
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }

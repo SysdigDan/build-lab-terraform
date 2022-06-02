@@ -56,3 +56,14 @@ variable "vm_network_settings" {
   })
   description = "value"
 }
+
+variable "vsphere_settings" {
+  type = object({
+    vsphere_datacenter = string
+    vsphere_datastore = string
+    vsphere_cluster = string
+    vsphere_network = string
+    vsphere_template = string
+  })
+  description = "value"
+}
