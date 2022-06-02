@@ -1,5 +1,5 @@
 variable "offset" {
-  default = 1
+  default = 0
 }
 variable "start_ipv4_address" {
   default = 100
@@ -71,7 +71,7 @@ resource "vsphere_virtual_machine" "vm" {
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
     customize {
       linux_options {
-        host_name = "${var.vm_name_prefix}${format("%02d", count.index + 1 + var.offset)}"
+        host_name = "${var.vm_name_prefix}${format("%02d","-worker-", count.index + 1 + var.offset)}"
         domain    = "prod.com"
       }
 	  network_interface {
